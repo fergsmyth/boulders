@@ -13,4 +13,5 @@ df = pd.read_html(str(problemsTable))[0]
 df.columns = df.iloc[0]
 df = df.drop(df.index[0])
 df = df.apply(lambda x: x.astype(str).str.lower())
+df = df.rename(columns={'Boulder/Sector':'boulder_sector'})
 df.to_sql('problems', engine, if_exists='replace')
