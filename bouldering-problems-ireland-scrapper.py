@@ -10,8 +10,10 @@ page = requests.get(problemsUrl)
 soup = BeautifulSoup(page.content, "html5lib")
 problemsTable = soup.find('table', {'width':'100%'})
 df = pd.read_html(str(problemsTable))[0]
+df = df.apply(lambda x: x.astype(str).str.lower())
 df.columns = df.iloc[0]
 df = df.drop(df.index[0])
-df = df.apply(lambda x: x.astype(str).str.lower())
-df = df.rename(columns={'Boulder/Sector':'boulder_sector'})
-df.to_sql('problems', engine, if_exists='replace')
+df = df.rename(columns={'boulder/sector':'boulder_sector'})
+df = df.rename(columns={'first ascentist':'sender'})
+df = df.rename(columns={'fa date':'sent_date'})
+df.to_sql('problem', engine, if_exists='replace')
