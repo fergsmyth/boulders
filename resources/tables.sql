@@ -1,5 +1,5 @@
 create table crag (
-	index SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	name text,
 	area text,
     county text,
@@ -9,7 +9,7 @@ create table crag (
 CREATE INDEX ix_crag_index ON crag USING btree (index);
 
 CREATE TABLE problem (
-	index SERIAL PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	name text NULL,
 	grade text NULL,
 	county text NULL,

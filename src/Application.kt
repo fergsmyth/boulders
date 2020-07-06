@@ -1,54 +1,47 @@
 package org.fergs
 
+import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
 import io.ktor.response.*
-import io.ktor.request.*
 import io.ktor.routing.*
 import io.ktor.http.*
-import io.ktor.html.*
 import kotlinx.html.*
 import kotlinx.css.*
 import io.ktor.client.*
 import io.ktor.client.engine.apache.*
+import io.ktor.features.ContentNegotiation
+import io.ktor.jackson.jackson
+import java.util.*
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
+
+data class Crag(val name: String, val area: String, val county: String, val description: String)
+
+val snippets = Collections.synchronizedList(mutableListOf(
+    Crag("the arch", "portrane", "dublin", "tasty"),
+    Crag("ground zero", "portrane", "dublin", "also tasty")
+))
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
+
+    install(ContentNegotiation) {
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
+        }
+    }
+
     val client = HttpClient(Apache) {
     }
 
     routing {
         get("/") {
-            call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
+            call.respond(mapOf("OK" to true))
         }
 
-        get("/html-dsl") {
-            call.respondHtml {
-                body {
-                    h1 { +"HTML" }
-                    ul {
-                        for (n in 1..10) {
-                            li { +"$n" }
-                        }
-                    }
-                }
-            }
-        }
-
-        get("/styles.css") {
-            call.respondCss {
-                body {
-                    backgroundColor = Color.red
-                }
-                p {
-                    fontSize = 2.em
-                }
-                rule("p.myclass") {
-                    color = Color.blue
-                }
-            }
+        get("/crags") {
+            call.respond(mapOf("crags" to synchronized(snippets) { snippets.toList() }))
         }
     }
 }
