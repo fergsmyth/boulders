@@ -37,7 +37,7 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         get("/") {
-            call.respond(mapOf("OK" to true))
+            call.respond(mapOf("Ok" to true))
         }
 
         get("/crags") {
