@@ -1,4 +1,4 @@
-package org.fergs
+package org.fergs.kotlin
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*

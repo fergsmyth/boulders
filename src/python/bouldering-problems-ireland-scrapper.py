@@ -1,7 +1,6 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from tabulate import tabulate
 from sqlalchemy import create_engine
 
 def main():
@@ -34,8 +33,8 @@ def main():
     df = df.rename(columns={'fa date':'sent_date'})    
 
     # Insert each problem into db
-    engine = create_engine('postgresql://postgres:mysecretpassword@localhost:5432/postgres')
-    df.to_sql('problem', engine, if_exists='replace')
+    engine = create_engine('postgresql://postgres:docker@localhost:5432/postgres')
+    df.to_sql('short_span_problems', engine, if_exists='replace')
 
 if __name__ == "__main__":
     # execute only if run as a script
