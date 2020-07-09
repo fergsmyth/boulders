@@ -1,3 +1,9 @@
+update short_span_problems set grade = replace(grade, '?', '');
+delete from short_span_problems where name = '-' and area = '-' and boulder_sector = '-';
+
+alter table short_span_problems rename column sent_date to sent_date_str;
+alter table short_span_problems add column sent_date date;
+
 insert into crag (county, area, name)
 select p.county, p.area, p.boulder_sector from problem p group by p.county, p.area, p.boulder_sector;
 

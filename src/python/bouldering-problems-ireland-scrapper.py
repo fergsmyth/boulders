@@ -30,7 +30,8 @@ def main():
     # Replace header naming conventions
     df = df.rename(columns={'boulder/sector':'boulder_sector'})
     df = df.rename(columns={'first ascentist':'sender'})
-    df = df.rename(columns={'fa date':'sent_date'})    
+    df = df.rename(columns={'fa date':'sent_date'})
+
 
     # Insert each problem into db
     engine = create_engine('postgresql://postgres:docker@localhost:5432/postgres')
