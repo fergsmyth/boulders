@@ -8,19 +8,19 @@ You need to have python3 and pip3 installed and a local postgres docker running 
 To keep your user python environment clean, best to create a virtual one as follows:
 
 #### Virtual Environment (Optional)
-#####Create virtual environment .venv
+##### Create virtual environment .venv
 python3 -m venv .venv
 
-#####Launch virtual environment  
+##### Launch virtual environment  
 (cygwin) source .venv\Scripts\activate  
 (windows) .venv\Scripts\activate.bat  
 (unix) source .venv/bin/activate  
 
 #### Run scrapper
-#####One time run per virtual environment  
+##### One time run per virtual environment  
 pip install -r requirements.txt
 
-#####Execute script  
+##### Execute script  
 python bouldering-problems-ireland-scrapper.py
 
 Any added imports should be updated in the requirements.txt.   
