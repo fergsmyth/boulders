@@ -21,6 +21,9 @@ target/
 *.iml
 *.ipr
 
+### Python
+.venv
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
