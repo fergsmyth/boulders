@@ -35,7 +35,7 @@ def main():
 
     # Insert each problem into db
     engine = create_engine('postgresql://postgres:mysecretpassword@localhost:5432/postgres')
-    df.to_sql('problem', engine, if_exists='replace')
+    df.to_sql('short_span_problems', engine, if_exists='replace')
 
 if __name__ == "__main__":
     # execute only if run as a script

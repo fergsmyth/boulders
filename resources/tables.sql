@@ -6,7 +6,15 @@ create table crag (
 	description text
 );
 
-CREATE INDEX ix_crag_index ON crag USING btree (index);
+CREATE INDEX ix_crag_index ON crag USING btree (id);
+
+create table grade_entry (
+    id SERIAL PRIMARY KEY,
+    font text NULL,
+    hueco text NULL
+);
+
+CREATE INDEX ix_grade_entry_index ON grade_entry USING btree (id);
 
 CREATE TABLE problem (
 	id SERIAL PRIMARY KEY,
@@ -21,9 +29,4 @@ CREATE TABLE problem (
     crag_id INTEGER
 );
 
-CREATE INDEX ix_problem_index ON problem USING btree (index);
-
-insert into crag (county, area, name)
-select p.county, p.area, p.boulder_sector from problem p group by p.county, p.area, p.boulder_sector;
-
-update problem p set p.crag_id = c.index from crag c where c.county = p.county and c.area = p.area and c.name = p.boulder_sector;
+CREATE INDEX ix_problem_index ON problem USING btree (id);
