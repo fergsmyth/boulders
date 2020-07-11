@@ -5,7 +5,12 @@ buildscript {
     
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.h2database:h2:1.4.197'
     }
+}
+
+plugins {
+    id "org.flywaydb.flyway" version "6.5.0"
 }
 
 apply plugin: 'kotlin'
@@ -44,4 +49,11 @@ dependencies {
     implementation "org.jetbrains.exposed:exposed:0.17.7"
     runtime group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+}
+
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/postgres'
+    user = 'postgres'
+    password = 'docker'
+    location
 }
