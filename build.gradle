@@ -55,5 +55,5 @@ flyway {
     url = 'jdbc:postgresql://localhost:5432/postgres'
     user = 'postgres'
     password = 'docker'
-    location
+    locations = ['filesystem:resources/sql']
 }
