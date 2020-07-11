@@ -10,7 +10,7 @@ CREATE INDEX ix_crag_index ON crag USING btree (id);
 
 create table boulder (
 	id SERIAL PRIMARY KEY,
-	crag_id INTEGER REFERENCES crag(id),
+	crag_id INTEGER,
 	name text NOT NULL,
 	description text
 );
@@ -27,8 +27,8 @@ CREATE INDEX ix_grade_index ON grade USING btree (id);
 
 CREATE TABLE problem (
 	id SERIAL PRIMARY KEY,
-	boulder_id INTEGER REFERENCES boulder(id),
-	grade_id INTEGER REFERENCES grade(id),
+	boulder_id INTEGER,
+	grade_id INTEGER,
 	name text NOT NULL,
 	sender text NULL,
 	sent_date text NULL,
