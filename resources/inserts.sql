@@ -9,7 +9,7 @@ select p.county, p.area, p.boulder_sector from problem p group by p.county, p.ar
 
 update problem p set p.crag_id = c.index from crag c where c.county = p.county and c.area = p.area and c.name = p.boulder_sector;
 
-insert into grade_entry (font, hueco)
+insert into grade (font, hueco)
 values ('4','v0'),
 ('5','v1'),
 ('5+','v2'),

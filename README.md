@@ -28,3 +28,6 @@ Any added imports should be updated in the requirements.txt.
 Avoid using pip freeze > requirements.txt as it dirties the file with transitive dependencies. 
 Version info available at https://pypi.org/search/
 
+#### Resources
+* [Climbing Wiki DB](http://wiki.climbing.ie/index.php/Irish_Climbing_Route_Database)
+* [Old bouldering Ireland guide](https://www.irishmountaineeringclub.org/wp-content/uploads/2017/06/Protrane-Old-Guide-Pages.pdf)
