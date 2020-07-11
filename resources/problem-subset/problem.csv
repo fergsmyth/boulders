@@ -1,5 +1,5 @@
-id, boulder_id, name, grade_id
-1, 1, "leviathan", 16
-2, 1, "radiacctive seaweed", 8
-3, 3, "edward black beard teach", 1
-4, 5, "crimpnarris", 10
+id, boulder_id, name, grade_id, sender, sent_date, description
+1, 1, "leviathan", 16, , ,
+2, 1, "radiacctive seaweed", 8, , ,
+3, 3, "edward black beard teach", 1, , ,
+4, 5, "crimpnarris", 10, , ,
