@@ -1,4 +1,4 @@
-package org.fergs.kotlin
+package ferg.kotlin
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
@@ -11,16 +11,8 @@ import io.ktor.client.*
 import io.ktor.client.engine.apache.*
 import io.ktor.features.ContentNegotiation
 import io.ktor.jackson.jackson
-import java.util.*
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
-
-data class Crag(val name: String, val area: String, val county: String, val description: String)
-
-val snippets = Collections.synchronizedList(mutableListOf(
-    Crag("the arch", "portrane", "dublin", "tasty"),
-    Crag("ground zero", "portrane", "dublin", "also tasty")
-))
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
@@ -37,12 +29,21 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         get("/") {
-            call.respond(mapOf("Ok" to true))
+            return@get call.respond(HttpStatusCode.OK)
         }
 
         get("/crags") {
-            call.respond(mapOf("crags" to synchronized(snippets) { snippets.toList() }))
+            return@get call.respond(HttpStatusCode.OK)
         }
+
+        get("/sessions") {
+            return@get call.respond(HttpStatusCode.OK)
+        }
+
+        post("/sessions") {
+            return@post call.respond(HttpStatusCode.Accepted)
+        }
+
     }
 }
 

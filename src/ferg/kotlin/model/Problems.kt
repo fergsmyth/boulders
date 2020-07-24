@@ -1,6 +1,8 @@
-package org.fergs.model
+package ferg.kotlin.model
 
 import org.jetbrains.exposed.sql.*
+import ferg.kotlin.model.Crags
+import ferg.kotlin.model.Grade
 
 object Problems : Table() {
     val id = integer("id").autoIncrement().primaryKey()

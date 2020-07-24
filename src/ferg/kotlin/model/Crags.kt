@@ -1,4 +1,4 @@
-package org.fergs.model
+package ferg.kotlin.model
 
 import org.jetbrains.exposed.sql.Table
 

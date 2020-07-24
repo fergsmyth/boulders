@@ -6,7 +6,7 @@ psql -h localhost -U postgres -d postgres
 ### Short span problem scrapper
 
 You need to have python3 and pip3 installed and a local postgres docker running as explained above.  
-To keep your user python environment clean, best to create a virtual one as follows:
+To keep your user ferg.kotlin.python environment clean, best to create a virtual one as follows:
 
 #### Virtual Environment (Optional)
 ##### Create virtual environment .venv
@@ -22,7 +22,7 @@ python3 -m venv .venv
 pip install -r requirements.txt
 
 ##### Execute script  
-python bouldering-problems-ireland-scrapper.py
+ferg.kotlin.python bouldering-problems-ireland-scrapper.py
 
 Any added imports should be updated in the requirements.txt.   
 Avoid using pip freeze > requirements.txt as it dirties the file with transitive dependencies. 

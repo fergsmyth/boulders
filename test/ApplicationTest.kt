@@ -3,7 +3,7 @@ package org.fergs
 import io.ktor.http.*
 import kotlin.test.*
 import io.ktor.server.testing.*
-import org.fergs.kotlin.module
+import ferg.kotlin.module
 
 class ApplicationTest {
     @Test
