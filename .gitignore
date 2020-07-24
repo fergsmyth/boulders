@@ -34,3 +34,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Extras
+data/
+.java-version
